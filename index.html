@@ -23,6 +23,8 @@
   .item:hover{border-color:var(--verde); box-shadow:0 4px 16px rgba(34,184,101,.14); transform:translateY(-1px);}
   .tag{display:inline-block; font-size:10.5px; font-weight:bold; letter-spacing:.8px; text-transform:uppercase;
     color:var(--verde-esc); background:#EAF6EC; border-radius:20px; padding:3px 10px;}
+  .item-top{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:2px;}
+  .date{font-size:12.5px; color:#8a9a8f; white-space:nowrap;}
   .item h2{margin:10px 0 4px; font-size:19px; color:var(--tinta); font-weight:600;}
   .item p{margin:0 0 8px; font-size:14.5px; color:var(--texto);}
   .go{font-size:14px; font-weight:bold; color:var(--verde-esc);}
@@ -53,14 +55,20 @@
     <div class="list">
 
       <a class="item" href="./mfa/">
-        <span class="tag">Segurança da Informação</span>
+        <div class="item-top">
+          <span class="tag">Segurança da Informação</span>
+          <span class="date">Publicado em 12/06/2026</span>
+        </div>
         <h2>Autenticação em Dois Fatores (MFA)</h2>
         <p>O que é, como ativar pelo Microsoft Authenticator e como usar no dia a dia — uma segunda camada que protege sua conta mesmo se descobrirem sua senha.</p>
         <span class="go">Acessar &rsaquo;</span>
       </a>
 
       <a class="item" href="./phishing/">
-        <span class="tag">Segurança da Informação</span>
+        <div class="item-top">
+          <span class="tag">Segurança da Informação</span>
+          <span class="date">Publicado em 09/06/2026</span>
+        </div>
         <h2>Phishing e Contatos Externos</h2>
         <p>Reconheça e-mails e contatos externos, identifique sinais de golpe, denuncie pelo Hoxhunt e bloqueie no Microsoft Teams.</p>
         <span class="go">Acessar &rsaquo;</span>
