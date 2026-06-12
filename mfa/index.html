@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comunicado de TI — Autenticação em Dois Fatores (MFA) | Koppert Brasil</title>
+<style>
+  :root{
+    --verde:#22B865; --verde-esc:#1d8a4e; --verde-noite:#00391c;
+    --tinta:#1b2e21; --texto:#2a3d2f; --fundo:#f1f5f0; --linha:#e3ece5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--fundo); font-family:'Segoe UI',Arial,sans-serif; color:var(--texto); line-height:1.6;}
+  .wrap{max-width:720px; margin:0 auto; padding:32px 16px;}
+  .card{background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 6px 24px rgba(0,40,20,.08);}
+  .banner img{display:block; width:100%; height:auto;}
+  .doctitle{margin:30px 0 0; font-size:28px; font-weight:300; color:var(--tinta); line-height:1.2;}
+  .docsub{margin:8px 0 0; font-size:15px; color:#6e8074;}
+  .body{padding:24px 32px 8px;}
+  .body p{font-size:15.5px;}
+  h2{font-size:19px; color:var(--verde); margin:30px 0 10px;}
+  ul{margin:8px 0; padding-left:0; list-style:none;}
+  ul li{position:relative; padding:5px 0 5px 22px; font-size:15px;}
+  ul li::before{content:"•"; position:absolute; left:2px; color:var(--verde); font-weight:bold;}
+  ul.alert li::before{content:"▸"; color:#E8A13A;}
+  ol.steps{margin:10px 0; padding:0; counter-reset:s; list-style:none;}
+  ol.steps li{position:relative; padding:7px 0 7px 40px; font-size:15px; min-height:30px;}
+  ol.steps li::before{counter-increment:s; content:counter(s); position:absolute; left:0; top:6px;
+    width:26px; height:26px; background:var(--verde); color:#fff; font-weight:bold; font-size:14px;
+    text-align:center; line-height:26px; border-radius:50%;}
+  a{color:var(--verde-esc); font-weight:bold; text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .callout{border-radius:8px; padding:14px 18px; margin:16px 0; font-size:14.5px;}
+  .callout .lbl{font-size:11px; font-weight:bold; letter-spacing:.7px; text-transform:uppercase; margin-bottom:5px;}
+  .c-verde{background:#EAF6EC; border-left:4px solid var(--verde);} .c-verde .lbl{color:var(--verde-esc);}
+  .c-azul{background:#E5F0FA; border-left:4px solid #3B8ACF;}
+  .c-laranja{background:#FDF4E2; border-left:4px solid #E8A13A;}
+  .c-vermelho{background:#FBEAEA; border-left:4px solid #e35d5d;}
+  .footer{background:var(--tinta); padding:22px 32px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .footer div{font-size:12.5px; color:#a9c2b2;}
+  .footer .r{text-align:right;}
+  @media (max-width:560px){
+    .body,.footer{padding-left:20px; padding-right:20px;}
+    .doctitle{font-size:23px;}
+    .footer{flex-direction:column;} .footer .r{text-align:left;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+
+    <div class="banner">
+      <img src="header-ciberseguranca-email.png" alt="Cibersegurança — Comunicado de TI">
+    </div>
+
+    <div class="body">
+      <h1 class="doctitle">Autenticação em Dois Fatores (MFA)</h1>
+      <p class="docsub">Uma segunda camada que protege sua conta mesmo se descobrirem sua senha.</p>
+      <p style="margin-top:22px;">Prezados colaboradores,</p>
+      <p>Senhas, sozinhas, não são mais suficientes. Boa parte dos golpes começa com uma senha vazada ou descoberta por phishing. Para proteger as contas da Koppert, estamos reforçando o uso da <strong>Autenticação em Dois Fatores</strong> — o <strong>MFA</strong> (também chamado de verificação em duas etapas).</p>
+      <p>É simples de ativar, leva poucos minutos e protege seu e-mail, o Teams e os sistemas da empresa. Veja abaixo o que é, como ativar e como usar no dia a dia.</p>
+
+      <div class="callout c-verde">
+        <div class="lbl">Em uma frase</div>
+        Com o MFA, mesmo que alguém descubra sua senha, <strong>não consegue entrar sem a confirmação no seu celular</strong>. É como ter uma segunda fechadura na porta.
+      </div>
+
+      <h2>1. O que é o MFA e por que usar</h2>
+      <p>O MFA exige <strong>dois fatores</strong> para confirmar que é você quem está entrando:</p>
+      <ul>
+        <li><strong>Algo que você sabe</strong> — a sua senha.</li>
+        <li><strong>Algo que você tem</strong> — o seu celular, que aprova o login ou gera um código.</li>
+      </ul>
+      <p>Assim, uma senha vazada não basta para o invasor. A proteção vale para sua conta <strong>Microsoft 365</strong> — e-mail (Outlook), <strong>Teams</strong>, OneDrive e os sistemas que usam o login da Koppert.</p>
+
+      <h2>2. Como ativar (Microsoft Authenticator)</h2>
+      <p>O app recomendado é o <strong>Microsoft Authenticator</strong> (gratuito). Tenha o celular e o computador à mão:</p>
+      <ol class="steps">
+        <li><strong>No celular</strong>, instale o <strong>Microsoft Authenticator</strong> pela Play Store (Android) ou App Store (iPhone).</li>
+        <li><strong>No computador</strong>, acesse <a href="https://aka.ms/mfasetup">aka.ms/mfasetup</a> e entre com seu e-mail <strong>@koppert.com.br</strong>.</li>
+        <li>Clique em <strong>"Adicionar método" › "Aplicativo autenticador"</strong> e avance até aparecer um <strong>QR Code</strong> na tela.</li>
+        <li>No app do celular, toque em <strong>"+" › "Conta corporativa ou de estudante" › "Ler código QR"</strong> e aponte para a tela.</li>
+        <li><strong>Faça o teste</strong>: o site mostra um número; digite-o no app (ou aprove a notificação). Pronto — o MFA está ativo!</li>
+      </ol>
+      <div class="callout c-azul">
+        <strong>Dica:</strong> use o app (Authenticator) em vez de SMS. É mais seguro, funciona no Wi-Fi mesmo sem sinal de celular e é mais rápido no dia a dia.
+      </div>
+
+      <h2>3. Como funciona no dia a dia</h2>
+      <ul>
+        <li>Ao entrar em um aparelho ou navegador novo, após a senha você verá um <strong>número na tela</strong> para digitar no app — é o "número correspondente" (number matching).</li>
+        <li>No celular da empresa ou de uso pessoal já confiável, normalmente você só precisa <strong>aprovar uma vez</strong> e marcar "confiar neste dispositivo".</li>
+        <li>Sem internet no celular? Abra o app e use o <strong>código de 6 dígitos</strong> que muda a cada 30 segundos.</li>
+      </ul>
+
+      <h2>4. Atenção: nunca aprove um login que não foi você</h2>
+      <p>Golpistas tentam cansar a vítima enviando <strong>várias notificações</strong> de aprovação na esperança de que alguém aprove sem pensar (golpe do "MFA fatigue"). Fique atento:</p>
+      <ul class="alert">
+        <li>Recebeu uma aprovação de MFA <strong>sem ter tentado entrar</strong>? <strong>Negue/recuse</strong> — alguém está com sua senha.</li>
+        <li><strong>Troque sua senha</strong> e avise a TI imediatamente nesse caso.</li>
+        <li><strong>Nunca</strong> informe seu código de MFA por telefone, e-mail, Teams ou WhatsApp. A TI da Koppert <strong>nunca</strong> pede esse código.</li>
+      </ul>
+      <div class="callout c-vermelho">
+        O código e a aprovação do MFA são <strong>só seus</strong>. Aprovar um pedido que não foi você é o mesmo que entregar a chave da sua conta.
+      </div>
+
+      <h2>5. Trocou de celular ou perdeu o aparelho?</h2>
+      <p>Antes de se desfazer do celular antigo, configure o MFA no novo em <a href="https://aka.ms/mfasetup">aka.ms/mfasetup</a>. Perdeu o acesso, trocou de número ou o aparelho foi roubado? <strong>Fale com a TI</strong> para reativar o MFA com segurança — não fique sem.</p>
+
+      <h2>Precisa de ajuda?</h2>
+      <p>A equipe de <strong>TI / Suporte</strong> ajuda você a ativar ou reativar o MFA pelo e-mail <a href="mailto:suporteti@koppert.com.br">suporteti@koppert.com.br</a> e pelos canais habituais.</p>
+      <p style="margin-bottom:24px;"><strong>Ative hoje mesmo.</strong> Cinco minutos agora evitam uma grande dor de cabeça depois.</p>
+    </div>
+
+    <div class="footer">
+      <div>Koppert Brasil · TI / Suporte<br>Documento de uso interno</div>
+      <div class="r">Gustavo Henrique Mazzero<br>Líder de Service Desk &amp; Infra</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
