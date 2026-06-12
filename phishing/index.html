@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comunicado de TI — Phishing e Contatos Externos | Koppert Brasil</title>
+<style>
+  :root{
+    --verde:#22B865; --verde-esc:#1d8a4e; --verde-noite:#00391c;
+    --tinta:#1b2e21; --texto:#2a3d2f; --fundo:#f1f5f0; --linha:#e3ece5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--fundo); font-family:'Segoe UI',Arial,sans-serif; color:var(--texto); line-height:1.6;}
+  .wrap{max-width:720px; margin:0 auto; padding:32px 16px;}
+  .card{background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 6px 24px rgba(0,40,20,.08);}
+  .banner img{display:block; width:100%; height:auto;}
+  .doctitle{margin:30px 0 0; font-size:28px; font-weight:300; color:var(--tinta); line-height:1.2;}
+  .docsub{margin:8px 0 0; font-size:15px; color:#6e8074;}
+  .body{padding:24px 32px 8px;}
+  .body p{font-size:15.5px;}
+  h2{font-size:19px; color:var(--verde); margin:30px 0 10px;}
+  ul{margin:8px 0; padding-left:0; list-style:none;}
+  ul li{position:relative; padding:5px 0 5px 22px; font-size:15px;}
+  ul li::before{content:"•"; position:absolute; left:2px; color:var(--verde); font-weight:bold;}
+  ul.alert li::before{content:"▸"; color:#E8A13A;}
+  ol.steps{margin:10px 0; padding:0; counter-reset:s; list-style:none;}
+  ol.steps li{position:relative; padding:7px 0 7px 40px; font-size:15px; min-height:30px;}
+  ol.steps li::before{counter-increment:s; content:counter(s); position:absolute; left:0; top:6px;
+    width:26px; height:26px; background:var(--verde); color:#fff; font-weight:bold; font-size:14px;
+    text-align:center; line-height:26px; border-radius:50%;}
+  a{color:var(--verde-esc); font-weight:bold; text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .badge{display:inline-block; padding:1px 7px; background:#FDF4E2; color:#b9791f; border:1px solid #E8A13A; border-radius:4px; font-weight:bold; font-size:13px;}
+  .callout{border-radius:8px; padding:14px 18px; margin:16px 0; font-size:14.5px;}
+  .callout .lbl{font-size:11px; font-weight:bold; letter-spacing:.7px; text-transform:uppercase; margin-bottom:5px;}
+  .c-verde{background:#EAF6EC; border-left:4px solid var(--verde);} .c-verde .lbl{color:var(--verde-esc);}
+  .c-azul{background:#E5F0FA; border-left:4px solid #3B8ACF;}
+  .c-laranja{background:#FDF4E2; border-left:4px solid #E8A13A;}
+  .c-vermelho{background:#FBEAEA; border-left:4px solid #e35d5d;} .c-vermelho .lbl{color:#d23b3b;}
+  .subhead{font-weight:bold; color:var(--tinta); margin:14px 0 2px;}
+  .footer{background:var(--tinta); padding:22px 32px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .footer div{font-size:12.5px; color:#a9c2b2;}
+  .footer .r{text-align:right;}
+  @media (max-width:560px){
+    .body,.footer{padding-left:20px; padding-right:20px;}
+    .doctitle{font-size:23px;}
+    .footer{flex-direction:column;} .footer .r{text-align:left;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+
+    <div class="banner">
+      <img src="header-ciberseguranca-email.png" alt="Cibersegurança — Comunicado de TI">
+    </div>
+
+    <div class="body">
+      <h1 class="doctitle">Phishing e Contatos Externos</h1>
+      <p class="docsub">Reconheça contatos externos, denuncie golpes pelo Hoxhunt e bloqueie no Teams.</p>
+      <p style="margin-top:22px;">Prezados colaboradores,</p>
+      <p>Temos identificado um <strong>aumento de tentativas de golpe</strong> em que pessoas externas se passam por colaboradores, gestores ou parceiros da Koppert para pedir <strong>informações financeiras, dados sigilosos, transferências ou senhas</strong>. Essa prática é o chamado <strong>phishing</strong>.</p>
+      <p>A melhor defesa é cada um saber <strong>reconhecer</strong> e <strong>denunciar</strong> mensagens suspeitas. Veja abaixo como fazer isso em poucos cliques.</p>
+
+      <div class="callout c-vermelho">
+        <div class="lbl">Atenção</div>
+        A Koppert <strong>nunca</strong> pede senhas, códigos de MFA ou dados bancários por e-mail. Qualquer pedido <strong>urgente</strong> de transferência, troca de dados de pagamento ou envio de informações sigilosas deve ser <strong>confirmado por outro canal</strong> (telefone ou pessoalmente) antes de qualquer ação.
+      </div>
+
+      <h2>1. Como reconhecer um e-mail externo</h2>
+      <p>Toda mensagem vinda de <strong>fora da Koppert</strong> recebe a marcação <span class="badge">[EXTERNAL] / [EXTERNO]</span> no assunto e/ou um aviso no topo do e-mail. Use isso como primeiro sinal de atenção:</p>
+      <ul>
+        <li>Se a mensagem é marcada como <strong>externa</strong>, mas se diz de um colega, gestor ou diretor <strong>interno</strong> — desconfie.</li>
+        <li>Confira o <strong>endereço completo</strong> do remetente, não só o nome exibido. Domínios com letras trocadas ou e-mails genéricos (@gmail, @outlook) são sinal de fraude.</li>
+        <li>Passe o mouse sobre o remetente (sem clicar) para ver o e-mail real.</li>
+      </ul>
+
+      <h2>2. Sinais de alerta de phishing</h2>
+      <ul class="alert">
+        <li><strong>Urgência ou ameaça:</strong> "responda agora", "sua conta será bloqueada".</li>
+        <li><strong>Pedido de dados sensíveis:</strong> senhas, MFA, dados bancários, transferências.</li>
+        <li><strong>Links e anexos inesperados:</strong> links que não batem com o texto, boletos ou faturas que você não esperava.</li>
+        <li><strong>Mudança de dados de pagamento:</strong> fornecedor ou "diretor" pedindo para alterar conta bancária ou chave PIX.</li>
+        <li><strong>Erros e tom estranho:</strong> português ruim, saudação genérica, pedido fora do habitual.</li>
+      </ul>
+      <div class="callout c-laranja">
+        <strong>Na dúvida, não interaja:</strong> não clique em links, não abra anexos e não responda com dados. Confirme por outro canal e denuncie pelo Hoxhunt.
+      </div>
+
+      <h2>3. Como denunciar pelo Hoxhunt no Outlook</h2>
+      <p>O <strong>Hoxhunt</strong> é o botão integrado ao Outlook para denunciar e-mails suspeitos. Com um clique, a mensagem vai para análise e é removida da sua caixa de entrada.</p>
+      <ol class="steps">
+        <li><strong>Selecione o e-mail suspeito</strong> — não é preciso abrir links nem anexos.</li>
+        <li><strong>Clique no botão Hoxhunt</strong> (ícone laranja) na faixa de opções. No <strong>Novo Outlook</strong> / <strong>Outlook na Web</strong>, ele fica no menu <strong>"…" (Mais ações)</strong> da mensagem.</li>
+        <li><strong>Confirme em "Reportar / Report Phishing".</strong> O e-mail é enviado para análise e removido da caixa de entrada.</li>
+        <li>O Hoxhunt informa se era uma <strong>simulação</strong> (você ganha pontos) ou uma <strong>ameaça real</strong> encaminhada à TI. Em ambos os casos, você fez o certo.</li>
+      </ol>
+      <div class="callout c-azul">
+        <strong>Não encontra o botão Hoxhunt?</strong> Não responda nem apague o e-mail: encaminhe a mensagem para <strong>suporteti@koppert.com.br</strong> e a TI fará a análise.
+      </div>
+
+      <h2>4. Golpes pelo Microsoft Teams</h2>
+      <p>Os golpistas também usam o <strong>Teams</strong>: contatos de <strong>fora da Koppert</strong> iniciam conversa se passando por colegas, gestores ou suporte. Veja como reconhecer:</p>
+      <ul>
+        <li>O Teams marca a conversa com a etiqueta <span class="badge">Externo / External</span> ao lado do nome.</li>
+        <li>Na primeira mensagem de alguém de fora, o Teams pergunta se você quer <strong>Aceitar</strong>, <strong>Visualizar</strong> ou <strong>Bloquear</strong>. Não aceite quem você não conhece.</li>
+      </ul>
+      <p class="subhead">Como bloquear o contato:</p>
+      <ol class="steps">
+        <li><strong>Abra a conversa suspeita</strong> — não clique em links nem abra arquivos enviados por ela.</li>
+        <li>Clique em <strong>"Bloquear"</strong> no aviso de contato externo; ou nos <strong>três pontos (•••)</strong> ao lado do nome / no topo do chat &rarr; <strong>"Bloquear"</strong>.</li>
+        <li><strong>Confirme.</strong> O contato não poderá mais te enviar mensagens nem ligar. (Gerencie em <strong>Configurações › Privacidade › Contatos bloqueados</strong>.)</li>
+        <li><strong>Avise a TI:</strong> tire um print e encaminhe para <strong>suporteti@koppert.com.br</strong>.</li>
+      </ol>
+      <div class="callout c-vermelho">
+        A TI da Koppert <strong>nunca</strong> pede senha, código de MFA ou dados bancários pelo Teams. Não clique em links nem abra arquivos de contatos externos desconhecidos.
+      </div>
+
+      <h2>Em caso de dúvidas</h2>
+      <p>Seja no e-mail ou no Teams, se não tiver certeza se uma mensagem ou contato é legítimo, <strong>confirme antes de agir</strong>. A equipe de <strong>TI / Suporte</strong> está à disposição pelo e-mail <a href="mailto:suporteti@koppert.com.br">suporteti@koppert.com.br</a> e pelos canais habituais.</p>
+      <p style="margin-bottom:24px;"><strong>Na dúvida, denuncie ou bloqueie.</strong> É sempre melhor reportar um contato legítimo do que ignorar um golpe.</p>
+    </div>
+
+    <div class="footer">
+      <div>Koppert Brasil · TI / Suporte<br>Documento de uso interno</div>
+      <div class="r">Gustavo Henrique Mazzero<br>Líder de Service Desk &amp; Infra</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
