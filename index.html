@@ -33,6 +33,27 @@
   .side-foot{margin-top:auto; padding:14px 8px 0; font-size:11.5px; color:#6fa583; line-height:1.5;
     border-top:1px solid rgba(255,255,255,.10);}
 
+  /* ===== Calendário ===== */
+  .cal{margin-top:24px; padding-top:18px; border-top:1px solid rgba(255,255,255,.10);}
+  .cal-head{display:flex; align-items:center; justify-content:space-between; margin:0 2px 10px;}
+  .cal-title{font-size:11px; font-weight:bold; letter-spacing:.6px; text-transform:uppercase; color:#dff0e4;}
+  .cal-nav{background:rgba(255,255,255,.10); border:none; color:#eaf6ec; width:24px; height:24px;
+    border-radius:6px; cursor:pointer; font-size:13px; line-height:1; display:flex; align-items:center; justify-content:center;}
+  .cal-nav:hover{background:rgba(255,255,255,.22);}
+  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:2px; text-align:center;}
+  .cal-grid .dow{font-size:9px; color:#7fc79b; font-weight:bold; padding:2px 0;}
+  .cal-grid .day{font-size:11.5px; color:#b3d4be; padding:5px 0; border-radius:7px;}
+  .cal-grid .day.empty{color:transparent;}
+  .cal-grid .day.has{background:var(--verde); color:#fff; font-weight:bold; cursor:pointer;}
+  .cal-grid .day.has:hover{background:#2fd47a;}
+  .cal-grid .day.sel{box-shadow:0 0 0 2px #fff inset;}
+  .cal-panel{margin-top:12px;}
+  .cal-panel .cp-date{font-size:9.5px; color:#7fc79b; text-transform:uppercase; letter-spacing:.5px; margin:0 2px 6px;}
+  .cal-panel a{display:block; text-decoration:none; color:#eaf6ec; background:rgba(255,255,255,.08);
+    border-radius:8px; padding:8px 10px; margin-bottom:6px; font-size:12.5px; line-height:1.35; transition:background .15s;}
+  .cal-panel a:hover{background:rgba(255,255,255,.18);}
+  .cal-panel a .cp-tag{display:block; font-size:8.5px; color:#7fdfa5; text-transform:uppercase; letter-spacing:.4px; margin-bottom:2px;}
+
   /* ===== Conteúdo ===== */
   .main{margin-left:var(--sidebar-w);}
   .wrap{max-width:820px; margin:0 auto; padding:32px 16px;}
@@ -66,6 +87,7 @@
     .nav a{padding:9px 12px; background:rgba(255,255,255,.08);}
     .nav a .ext{display:none;}
     .side-foot{display:none;}
+    .cal{width:100%; max-width:300px; margin:16px auto 0;}
     .main{margin-left:0;}
   }
   @media (max-width:560px){
@@ -103,6 +125,17 @@
       </a>
 
     </nav>
+
+    <div class="cal">
+      <div class="cal-head">
+        <button class="cal-nav" id="calPrev" aria-label="Mês anterior">&lsaquo;</button>
+        <span class="cal-title" id="calTitle">—</span>
+        <button class="cal-nav" id="calNext" aria-label="Próximo mês">&rsaquo;</button>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-panel" id="calPanel"></div>
+    </div>
+
     <div class="side-foot">Koppert Brasil<br>TI / Cyber Security Team</div>
   </aside>
 
@@ -160,6 +193,70 @@
     </div>
   </div>
   </div>
+
+<script>
+/* ===== Calendário de comunicados =====
+   Para adicionar um comunicado novo ao calendário, inclua uma entrada aqui
+   (mesma data/título/link do card correspondente acima). */
+const COMUNICADOS = [
+  {date:'2026-06-12', tag:'Equipamentos e Dispositivos', title:'Cuidados com seu dispositivo',        url:'./dispositivo/'},
+  {date:'2026-06-12', tag:'Segurança da Informação',     title:'Autenticação em Dois Fatores (MFA)',  url:'./mfa/'},
+  {date:'2026-06-09', tag:'Segurança da Informação',     title:'Phishing e Contatos Externos',        url:'./phishing/'},
+];
+
+(function(){
+  const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  const DOW = ['D','S','T','Q','Q','S','S'];
+  const pad = n => String(n).padStart(2,'0');
+
+  const byDate = {};
+  COMUNICADOS.forEach(c => { (byDate[c.date] = byDate[c.date] || []).push(c); });
+
+  // Abre no mês do comunicado mais recente (garante destaques visíveis de cara)
+  const datas = COMUNICADOS.map(c => c.date).sort();
+  const recente = datas[datas.length - 1] || '2026-06-01';
+  let [vy, vm] = recente.split('-').map(Number); vm -= 1; // mês 0-based
+  let selected = recente;
+
+  const grid  = document.getElementById('calGrid');
+  const title = document.getElementById('calTitle');
+  const panel = document.getElementById('calPanel');
+
+  function showPanel(key){
+    const itens = byDate[key] || [];
+    if(!itens.length){ panel.innerHTML = ''; return; }
+    const [y,m,d] = key.split('-');
+    panel.innerHTML = '<div class="cp-date">Comunicado de '+d+'/'+m+'/'+y+'</div>' +
+      itens.map(c => '<a href="'+c.url+'"><span class="cp-tag">'+c.tag+'</span>'+c.title+'</a>').join('');
+  }
+
+  function render(){
+    title.textContent = MESES[vm].toUpperCase() + ' ' + vy;
+    let html = DOW.map(d => '<div class="dow">'+d+'</div>').join('');
+    const first = new Date(vy, vm, 1).getDay();      // 0 = domingo
+    const ndays = new Date(vy, vm+1, 0).getDate();
+    for(let i=0;i<first;i++) html += '<div class="day empty"></div>';
+    for(let d=1; d<=ndays; d++){
+      const key = vy+'-'+pad(vm+1)+'-'+pad(d);
+      const has = byDate[key];
+      let cls = 'day';
+      if(has) cls += ' has';
+      if(key === selected) cls += ' sel';
+      html += '<div class="'+cls+'"'+(has?' data-date="'+key+'"':'')+'>'+d+'</div>';
+    }
+    grid.innerHTML = html;
+    grid.querySelectorAll('.day.has').forEach(el => {
+      el.addEventListener('click', () => { selected = el.dataset.date; render(); showPanel(selected); });
+    });
+  }
+
+  document.getElementById('calPrev').addEventListener('click', () => { vm--; if(vm<0){vm=11;vy--;} render(); });
+  document.getElementById('calNext').addEventListener('click', () => { vm++; if(vm>11){vm=0;vy++;} render(); });
+
+  render();
+  showPanel(selected);
+})();
+</script>
 
 </body>
 </html>
