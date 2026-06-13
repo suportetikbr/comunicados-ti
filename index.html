@@ -5,13 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Central de Comunicados — TI / Cyber Security Team | Koppert Brasil</title>
 <style>
+  @font-face{
+    font-family:'Sharp Grotesk';
+    src:url('fonts/SharpGrotesk-Book.woff2') format('woff2'),
+        url('fonts/SharpGrotesk-Book.woff') format('woff');
+    font-weight:400; font-style:normal; font-display:swap;
+  }
   :root{
     --verde:#22B865; --verde-esc:#1d8a4e; --verde-noite:#00391c;
     --tinta:#1b2e21; --texto:#2a3d2f; --fundo:#f1f5f0;
     --sidebar-w:264px;
   }
   *{box-sizing:border-box;}
-  body{margin:0; background:var(--fundo); font-family:'Segoe UI',Arial,sans-serif; color:var(--texto); line-height:1.6;}
+  body{margin:0; background:var(--fundo); font-family:'Sharp Grotesk','Segoe UI',Arial,sans-serif; color:var(--texto); line-height:1.6;}
 
   /* ===== Menu lateral ===== */
   .sidebar{
