@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comunicado de TI — Ransomware e Backup | Koppert Brasil</title>
+<style>
+  :root{
+    --verde:#22B865; --verde-esc:#1d8a4e; --verde-noite:#00391c;
+    --tinta:#1b2e21; --texto:#2a3d2f; --fundo:#f1f5f0; --linha:#e3ece5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--fundo); font-family:'Segoe UI',Arial,sans-serif; color:var(--texto); line-height:1.6;}
+  .wrap{max-width:720px; margin:0 auto; padding:32px 16px;}
+  .card{background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 6px 24px rgba(0,40,20,.08);}
+  .banner img{display:block; width:100%; height:auto;}
+  .doctitle{margin:30px 0 0; font-size:28px; font-weight:300; color:var(--tinta); line-height:1.2;}
+  .docsub{margin:8px 0 0; font-size:15px; color:#6e8074;}
+  .body{padding:24px 32px 8px;}
+  .body p{font-size:15.5px;}
+  h2{font-size:19px; color:var(--verde); margin:30px 0 10px;}
+  ul{margin:8px 0; padding-left:0; list-style:none;}
+  ul li{position:relative; padding:5px 0 5px 22px; font-size:15px;}
+  ul li::before{content:"•"; position:absolute; left:2px; color:var(--verde); font-weight:bold;}
+  ul.alert li::before{content:"▸"; color:#E8A13A;}
+  ol.steps{margin:10px 0; padding:0; counter-reset:s; list-style:none;}
+  ol.steps li{position:relative; padding:7px 0 7px 40px; font-size:15px; min-height:30px;}
+  ol.steps li::before{counter-increment:s; content:counter(s); position:absolute; left:0; top:6px;
+    width:26px; height:26px; background:var(--verde); color:#fff; font-weight:bold; font-size:14px;
+    text-align:center; line-height:26px; border-radius:50%;}
+  a{color:var(--verde-esc); font-weight:bold; text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .backbtn{display:inline-block; padding:8px 16px; background:#EAF6EC; color:var(--verde-esc); border:1px solid #cfe6d6; border-radius:8px; font-size:13.5px; font-weight:bold; text-decoration:none;}
+  .backbtn:hover{background:#dcefe2; text-decoration:none;}
+  .callout{border-radius:8px; padding:14px 18px; margin:16px 0; font-size:14.5px;}
+  .callout .lbl{font-size:11px; font-weight:bold; letter-spacing:.7px; text-transform:uppercase; margin-bottom:5px;}
+  .c-verde{background:#EAF6EC; border-left:4px solid var(--verde);} .c-verde .lbl{color:var(--verde-esc);}
+  .c-azul{background:#E5F0FA; border-left:4px solid #3B8ACF;}
+  .c-laranja{background:#FDF4E2; border-left:4px solid #E8A13A;}
+  .c-vermelho{background:#FBEAEA; border-left:4px solid #e35d5d;}
+  .footer{background:var(--tinta); padding:22px 32px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .footer div{font-size:12.5px; color:#a9c2b2;}
+  .footer .r{text-align:right;}
+  @media (max-width:560px){
+    .body,.footer{padding-left:20px; padding-right:20px;}
+    .doctitle{font-size:23px;}
+    .footer{flex-direction:column;} .footer .r{text-align:left;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+
+    <div class="banner">
+      <img src="header-ciberseguranca-email.png" alt="Cibersegurança — Comunicado de TI">
+    </div>
+
+    <div class="body">
+      <a class="backbtn" href="../">&lsaquo; Voltar para a Central</a>
+      <h1 class="doctitle">Ransomware e Backup</h1>
+      <p class="docsub">Como funciona o "sequestro de arquivos" e por que salvar no lugar certo protege o seu trabalho.</p>
+      <p style="margin-top:22px;">Prezados colaboradores,</p>
+      <p>Imagine chegar para trabalhar e descobrir que <strong>todos os seus arquivos foram bloqueados</strong> — planilhas, documentos, fotos — e que uma mensagem na tela exige um pagamento para devolvê-los. Isso é o <strong>ransomware</strong>, um dos ataques mais comuns e custosos hoje, e ele costuma começar com um simples clique.</p>
+      <p>A boa notícia: com hábitos simples e o <strong>backup no lugar certo</strong>, esse golpe perde quase todo o poder. Veja como se proteger.</p>
+
+      <div class="callout c-verde">
+        <div class="lbl">Em uma frase</div>
+        Ransomware é um vírus que <strong>"sequestra" seus arquivos</strong> e cobra resgate para liberá-los. A melhor defesa não é pagar — é ter <strong>backup</strong> e evitar o clique que abre a porta.
+      </div>
+
+      <h2>1. O que é ransomware</h2>
+      <p>É um tipo de vírus que <strong>criptografa (embaralha) seus arquivos</strong>, tornando-os inacessíveis. Em seguida, os criminosos exigem um <strong>resgate</strong> (em inglês, <em>ransom</em>) — quase sempre em criptomoeda — prometendo devolver o acesso.</p>
+      <ul>
+        <li>Pode se espalhar do seu computador para <strong>pastas de rede e arquivos compartilhados</strong>, afetando colegas e a operação inteira.</li>
+        <li><strong>Pagar não garante nada</strong>: muitas vítimas pagam e não recuperam os dados — e ainda viram alvo preferencial de novos ataques.</li>
+        <li>Além de travar arquivos, alguns ataques <strong>roubam dados</strong> e ameaçam divulgá-los.</li>
+      </ul>
+
+      <h2>2. Como ele chega até você</h2>
+      <p>O ransomware quase sempre depende de uma ação do usuário. Os caminhos mais comuns são:</p>
+      <ul class="alert">
+        <li><strong>Anexos de e-mail</strong> — notas fiscais, boletos, currículos ou "comprovantes" falsos (.zip, .docm, .exe).</li>
+        <li><strong>Links maliciosos</strong> — em e-mails, mensagens de WhatsApp/Teams ou sites duvidosos.</li>
+        <li><strong>Pen drives e HDs desconhecidos</strong> — plugar um dispositivo de origem incerta.</li>
+        <li><strong>Programas "piratas" ou baixados de fontes não oficiais</strong> — instaladores que escondem o vírus.</li>
+      </ul>
+      <div class="callout c-azul">
+        <strong>Conexão importante:</strong> a maior porta de entrada do ransomware é o <strong>phishing</strong>. Reforce o cuidado com e-mails e contatos externos — veja o comunicado de Phishing aqui na Central.
+      </div>
+
+      <h2>3. A melhor defesa: backup no lugar certo</h2>
+      <p>Se os seus arquivos estão salvos em um lugar com cópia, um ataque vira apenas um susto — basta restaurar. Na Koppert, esses lugares são:</p>
+      <ul>
+        <li><strong>OneDrive</strong> — faz <strong>backup automático</strong> da sua <strong>Área de Trabalho</strong>, da pasta <strong>Documentos</strong> e de tudo que você salva nele, com <strong>histórico de versões</strong> e a função "Restaurar", que permite voltar os arquivos a um momento anterior ao ataque.</li>
+        <li><strong>SharePoint e pastas de rede corporativas</strong> — com cópia e backup feito pela TI.</li>
+      </ul>
+      <div class="callout c-laranja">
+        <div class="lbl">Atenção</div>
+        O cuidado é com o que fica <strong>fora do OneDrive e das pastas de rede</strong> — por exemplo, arquivos guardados só na pasta <strong>Downloads</strong>, em outras pastas do <strong>disco C:</strong> ou apenas em <strong>pen drives e HDs externos</strong>. Esses <strong>não têm backup automático</strong> e podem ser perdidos. Na dúvida, salve dentro do <strong>OneDrive</strong>.
+      </div>
+
+      <h2>4. Se você suspeitar de uma infecção</h2>
+      <p>Sinais de alerta: arquivos com extensões estranhas, documentos que não abrem, uma <strong>mensagem exigindo pagamento</strong> ou o computador muito lento de repente. Se acontecer, aja rápido — <strong>cada minuto conta</strong> para evitar que se espalhe:</p>
+      <ol class="steps">
+        <li><strong>Desconecte da rede</strong>: tire o cabo de rede e desligue o Wi-Fi, para isolar o equipamento e impedir a propagação.</li>
+        <li><strong>Não desligue nem reinicie</strong> o computador e <strong>não tente "consertar"</strong> apagando arquivos.</li>
+        <li><strong>Não pague</strong> nada e não responda à mensagem dos criminosos.</li>
+        <li><strong>Acione a TI imediatamente</strong> pelo Portal de Chamados ou por <a href="mailto:suporteti@koppert.com.br">suporteti@koppert.com.br</a>.</li>
+      </ol>
+      <div class="callout c-vermelho">
+        Avisar a TI <strong>no primeiro sinal</strong> pode ser a diferença entre um computador afetado e a empresa inteira parada. Não tenha receio de chamar — é exatamente para isso que estamos aqui.
+      </div>
+
+      <h2>5. Como se proteger no dia a dia</h2>
+      <ul>
+        <li><strong>Desconfie de anexos e links</strong> inesperados, mesmo de remetentes conhecidos.</li>
+        <li><strong>Mantenha o computador atualizado</strong> — as atualizações fecham as brechas que o vírus explora.</li>
+        <li><strong>Salve seus arquivos no OneDrive / pastas de rede</strong>, não apenas no computador.</li>
+        <li><strong>Não instale programas</strong> por conta própria nem use software de fontes não oficiais.</li>
+        <li><strong>Use o MFA</strong> e senhas fortes — dificultam o acesso dos criminosos às suas contas.</li>
+        <li><strong>Na dúvida, pergunte à TI</strong> antes de abrir, clicar ou instalar.</li>
+      </ul>
+
+      <h2>Precisa de ajuda?</h2>
+      <p>A equipe de <strong>TI / Cyber Security Team</strong> está à disposição pelo <a href="https://helpdesk.koppert.com/support/home">Portal de Chamados</a>, pelo e-mail <a href="mailto:suporteti@koppert.com.br">suporteti@koppert.com.br</a> e pelos canais habituais.</p>
+      <p style="margin-bottom:24px;"><strong>Backup é proteção.</strong> Salve no lugar certo hoje e durma tranquilo amanhã.</p>
+      <p style="margin:8px 0 26px;"><a class="backbtn" href="../">&lsaquo; Voltar para a Central</a></p>
+    </div>
+
+    <div class="footer">
+      <div>Koppert Brasil · TI / Cyber Security Team<br>Documento de uso interno</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
