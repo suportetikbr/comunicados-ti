@@ -41,6 +41,14 @@
     border-radius:6px; cursor:pointer; font-size:13px; line-height:1; display:flex; align-items:center; justify-content:center;}
   .cal-nav:hover{background:rgba(255,255,255,.22);}
   .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:2px; text-align:center;}
+  @keyframes calIn{from{opacity:0; transform:translateX(var(--cal-dx,0));} to{opacity:1; transform:translateX(0);}}
+  .cal-grid.anim{animation:calIn .26s cubic-bezier(.22,.61,.36,1);}
+  .cal-title{transition:opacity .2s ease;}
+  .cal-title.fade{opacity:0;}
+  @media (prefers-reduced-motion:reduce){
+    .cal-grid.anim{animation:none;}
+    .cal-title{transition:none;}
+  }
   .cal-grid .dow{font-size:9px; color:#7fc79b; font-weight:bold; padding:2px 0;}
   .cal-grid .day{font-size:11.5px; color:#b3d4be; padding:5px 0; border-radius:7px;}
   .cal-grid .day.empty{color:transparent;}
@@ -230,7 +238,8 @@ const COMUNICADOS = [
       itens.map(c => '<a href="'+c.url+'"><span class="cp-tag">'+c.tag+'</span>'+c.title+'</a>').join('');
   }
 
-  function render(){
+  function render(dir){
+    dir = dir || 0;
     title.textContent = MESES[vm].toUpperCase() + ' ' + vy;
     let html = DOW.map(d => '<div class="dow">'+d+'</div>').join('');
     const first = new Date(vy, vm, 1).getDay();      // 0 = domingo
@@ -248,12 +257,23 @@ const COMUNICADOS = [
     grid.querySelectorAll('.day.has').forEach(el => {
       el.addEventListener('click', () => { selected = el.dataset.date; render(); showPanel(selected); });
     });
+    // dispara a animação direcional (reinicia mesmo se a classe já estiver presente)
+    grid.style.setProperty('--cal-dx', dir > 0 ? '14px' : dir < 0 ? '-14px' : '0px');
+    grid.classList.remove('anim'); void grid.offsetWidth; grid.classList.add('anim');
   }
 
-  document.getElementById('calPrev').addEventListener('click', () => { vm--; if(vm<0){vm=11;vy--;} render(); });
-  document.getElementById('calNext').addEventListener('click', () => { vm++; if(vm>11){vm=0;vy++;} render(); });
+  function navega(dir){
+    title.classList.add('fade');
+    setTimeout(() => {
+      vm += dir; if(vm<0){vm=11;vy--;} if(vm>11){vm=0;vy++;}
+      render(dir);
+      title.classList.remove('fade');
+    }, 120);
+  }
+  document.getElementById('calPrev').addEventListener('click', () => navega(-1));
+  document.getElementById('calNext').addEventListener('click', () => navega(1));
 
-  render();
+  render(0);
   showPanel(selected);
 })();
 </script>
