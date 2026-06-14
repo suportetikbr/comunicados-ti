@@ -17,7 +17,7 @@
   --text-soft:#6e8074;
   --tinta:#1b2e21;
   --linha:#e3ece5;
-  --footer-bg:#16241c;
+  --footer-bg:linear-gradient(105deg, var(--side-3) 0%, var(--side-2) 55%, var(--side-1) 100%);
   --footer-text:#a9c2b2;
   --card-shadow:0 6px 24px rgba(0,40,20,.08);
   --item-glow:0 4px 16px rgba(34,184,101,.14);
@@ -80,8 +80,6 @@ html[data-theme="dark"]{
   --text-soft:#8ea096;
   --tinta:#e9f1ec;
   --linha:#26312b;
-  --footer-bg:#0b100e;
-  --footer-text:#7f9587;
   --card-shadow:0 6px 24px rgba(0,0,0,.45);
   --item-glow:0 6px 20px rgba(0,0,0,.5);
 
