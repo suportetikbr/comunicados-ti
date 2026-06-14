@@ -104,6 +104,47 @@ body,.card,.item,.footer,.callout,.backbtn,.sidebar,.cal-panel a,.nav a,.tag{
 }
 
 /* =========================================================================
+   Header (masthead) em HTML — compartilhado pela Central e pelos comunicados.
+   Acompanha tema e cor de destaque (mesmo degradê da sidebar).
+   ========================================================================= */
+.banner{position:relative; overflow:hidden;}
+.masthead{
+  position:relative; overflow:hidden; padding:30px 36px 34px; min-height:172px;
+  background:linear-gradient(105deg, var(--side-3) 0%, var(--side-2) 42%, var(--side-1) 100%);
+}
+.masthead.has-icon{padding-right:150px;}
+.masthead::before{ /* textura de pontos, esmaece para a direita */
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.7;
+  background-image:radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.4px);
+  background-size:15px 15px;
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 50%);
+          mask-image:linear-gradient(90deg,#000 0%,transparent 50%);
+}
+.masthead::after{ /* brilho na cor de destaque, à direita */
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(135% 130% at 96% 24%, color-mix(in srgb, var(--verde) 42%, transparent), transparent 60%);
+}
+.masthead > *{position:relative; z-index:1;}
+.masthead .mh-logo{display:block; width:96px; height:auto;}
+.mh-kicker{margin:24px 0 0; font-size:11px; font-weight:bold; letter-spacing:1.8px;
+  text-transform:uppercase; color:rgba(223,240,228,.72);}
+.mh-kicker::before{content:"—  "; color:rgba(223,240,228,.5);}
+.mh-title{margin:7px 0 0; font-size:clamp(27px,4.6vw,42px); font-weight:700;
+  line-height:1.04; letter-spacing:-.5px; color:#fff;}
+.mh-icon{position:absolute; top:50%; right:36px; transform:translateY(-50%); z-index:1;
+  width:92px; height:92px; border-radius:50%; background:var(--verde);
+  display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,.22);}
+.mh-icon svg{width:46px; height:46px; stroke:#0e2417; stroke-width:1.8; fill:none;
+  stroke-linecap:round; stroke-linejoin:round;}
+@media (max-width:560px){
+  .masthead{padding:22px 20px 26px; min-height:138px;}
+  .masthead.has-icon{padding-right:92px;}
+  .masthead .mh-logo{width:84px;}
+  .mh-icon{width:60px; height:60px; right:18px;}
+  .mh-icon svg{width:31px; height:31px;}
+}
+
+/* =========================================================================
    Botão flutuante + popover (injetados por theme.js)
    ========================================================================= */
 .kbr-theme{position:fixed; right:18px; bottom:18px; z-index:80; font-family:'Segoe UI',Arial,sans-serif;}
