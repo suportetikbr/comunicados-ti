@@ -1,0 +1,154 @@
+/* =========================================================================
+   Central de Comunicados — Sistema de Tema (claro/escuro + 6 cores)
+   Compartilhado por todas as páginas (index + comunicados).
+   - Tema:  html[data-theme="light" | "dark"]
+   - Cor :  html[data-accent="verde" | "azul" | "teal" | "roxo" | "laranja" | "vermelho"]
+   Os valores são aplicados via variáveis CSS; o controle fica no botão
+   flutuante injetado por theme.js. A escolha é salva em localStorage.
+   ========================================================================= */
+
+/* ===== Tokens base (tema claro · cor verde padrão) ===== */
+:root{
+  /* superfícies — variam com claro/escuro */
+  --fundo:#eef1ef;
+  --surface:#ffffff;
+  --surface-2:#f5f8f6;
+  --texto:#2a3d2f;
+  --text-soft:#6e8074;
+  --tinta:#1b2e21;
+  --linha:#e3ece5;
+  --footer-bg:#16241c;
+  --footer-text:#a9c2b2;
+  --card-shadow:0 6px 24px rgba(0,40,20,.08);
+  --item-glow:0 4px 16px rgba(34,184,101,.14);
+
+  /* cor de destaque (accent) — sobrescrita por [data-accent] */
+  --verde:#22B865;          /* accent vivo: ícones, títulos de seção, marcadores */
+  --verde-esc:#1d8a4e;      /* accent forte: links e textos pequenos */
+  --accent-bright:#2fd47a;  /* hover de elementos accent */
+  --accent-soft:#EAF6EC;    /* fundo suave de tags / botões / callout-marca */
+  --accent-soft-h:#dcefe2;  /* hover do fundo suave */
+  --accent-soft-bd:#cfe6d6; /* borda do fundo suave */
+
+  /* sidebar (sempre escura) — degradê varia com o accent */
+  --side-1:#00481f; --side-2:#00391c; --side-3:#002b13;
+
+  /* callouts semânticos (mantêm o significado independente do accent) */
+  --co-blue-bg:#E5F0FA; --co-orange-bg:#FDF4E2; --co-red-bg:#FBEAEA;
+}
+
+/* ===== Cores de destaque ===== */
+html[data-accent="azul"]{
+  --verde:#2F86D6; --verde-esc:#1f6fb5; --accent-bright:#4f9fe6;
+  --accent-soft:#E8F1FB; --accent-soft-h:#d7e8f8; --accent-soft-bd:#c5dcf0;
+  --side-1:#073a63; --side-2:#06304f; --side-3:#04233b;
+  --item-glow:0 4px 16px rgba(47,134,214,.16);
+}
+html[data-accent="teal"]{
+  --verde:#16B3A6; --verde-esc:#0e8c82; --accent-bright:#2ad0c2;
+  --accent-soft:#E3F6F4; --accent-soft-h:#cdeeea; --accent-soft-bd:#bfe6e1;
+  --side-1:#064b45; --side-2:#053b37; --side-3:#042c29;
+  --item-glow:0 4px 16px rgba(22,179,166,.16);
+}
+html[data-accent="roxo"]{
+  --verde:#8257E5; --verde-esc:#6b46c9; --accent-bright:#9d78f0;
+  --accent-soft:#EFEAFB; --accent-soft-h:#e1d8f6; --accent-soft-bd:#d6c9f2;
+  --side-1:#34215e; --side-2:#2a1a4e; --side-3:#1f133b;
+  --item-glow:0 4px 16px rgba(130,87,229,.18);
+}
+html[data-accent="laranja"]{
+  --verde:#F08A24; --verde-esc:#c96f12; --accent-bright:#ff9f3f;
+  --accent-soft:#FDF1E2; --accent-soft-h:#fae3c8; --accent-soft-bd:#f5d6b0;
+  --side-1:#5e3408; --side-2:#4d2a05; --side-3:#3a2004;
+  --item-glow:0 4px 16px rgba(240,138,36,.18);
+}
+html[data-accent="vermelho"]{
+  --verde:#E24D4D; --verde-esc:#c43b3b; --accent-bright:#f06a6a;
+  --accent-soft:#FCEAEA; --accent-soft-h:#f8d8d8; --accent-soft-bd:#f2c6c6;
+  --side-1:#5e1717; --side-2:#4d1212; --side-3:#3a0d0d;
+  --item-glow:0 4px 16px rgba(226,77,77,.18);
+}
+
+/* ===== Tema escuro ===== */
+/* (declarado depois dos accents: --verde-esc passa a usar o accent vivo,
+    que tem melhor contraste sobre superfícies escuras) */
+html[data-theme="dark"]{
+  --fundo:#0e1311;
+  --surface:#161d19;
+  --surface-2:#1d2723;
+  --texto:#cdd8d0;
+  --text-soft:#8ea096;
+  --tinta:#e9f1ec;
+  --linha:#26312b;
+  --footer-bg:#0b100e;
+  --footer-text:#7f9587;
+  --card-shadow:0 6px 24px rgba(0,0,0,.45);
+  --item-glow:0 6px 20px rgba(0,0,0,.5);
+
+  --verde-esc:var(--verde);        /* links/realces mais claros no escuro */
+  --accent-soft:rgba(255,255,255,.06);
+  --accent-soft-h:rgba(255,255,255,.12);
+  --accent-soft-bd:rgba(255,255,255,.16);
+
+  --co-blue-bg:rgba(59,138,207,.16);
+  --co-orange-bg:rgba(232,161,58,.16);
+  --co-red-bg:rgba(227,93,93,.18);
+}
+
+/* ===== Transição suave ao trocar de tema ===== */
+body,.card,.item,.footer,.callout,.backbtn,.sidebar,.cal-panel a,.nav a,.tag{
+  transition:background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+@media (prefers-reduced-motion:reduce){
+  body,.card,.item,.footer,.callout,.backbtn,.sidebar,.cal-panel a,.nav a,.tag{transition:none;}
+}
+
+/* =========================================================================
+   Botão flutuante + popover (injetados por theme.js)
+   ========================================================================= */
+.kbr-theme{position:fixed; right:18px; bottom:18px; z-index:80; font-family:'Segoe UI',Arial,sans-serif;}
+
+.kbr-fab{
+  width:48px; height:48px; border-radius:50%; border:none; cursor:pointer;
+  background:var(--verde); color:#fff; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.28); transition:transform .15s ease, background-color .25s ease;
+}
+.kbr-fab:hover{transform:translateY(-2px) scale(1.04);}
+.kbr-fab svg{width:23px; height:23px; stroke:#fff; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round;}
+
+.kbr-pop{
+  position:absolute; right:0; bottom:60px; width:220px;
+  background:var(--surface); color:var(--texto); border:1px solid var(--linha);
+  border-radius:14px; padding:16px; box-shadow:0 12px 34px rgba(0,0,0,.30);
+  transform-origin:bottom right; transition:opacity .16s ease, transform .16s ease;
+}
+.kbr-pop[hidden]{display:none;}
+.kbr-pop.closing{opacity:0; transform:scale(.94); pointer-events:none;}
+
+.kbr-label{font-size:10.5px; font-weight:bold; letter-spacing:1px; text-transform:uppercase;
+  color:var(--text-soft); margin:0 0 8px;}
+
+.kbr-modes{display:flex; gap:8px; margin-bottom:16px;}
+.kbr-mode{
+  flex:1; display:flex; align-items:center; justify-content:center; gap:6px;
+  padding:9px 6px; border:1px solid var(--linha); border-radius:9px; cursor:pointer;
+  background:transparent; color:var(--texto); font-size:13px; font-weight:600;
+  transition:border-color .15s, background-color .15s;
+}
+.kbr-mode:hover{border-color:var(--verde);}
+.kbr-mode.active{border-color:var(--verde); background:var(--accent-soft); color:var(--verde-esc);}
+.kbr-mode svg{width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round;}
+
+.kbr-swatches{display:grid; grid-template-columns:repeat(6,1fr); gap:8px;}
+.kbr-sw{
+  width:100%; aspect-ratio:1/1; border-radius:50%; cursor:pointer; padding:0;
+  background:var(--sw); border:2px solid transparent; outline:2px solid transparent;
+  transition:transform .12s ease, outline-color .12s ease;
+}
+.kbr-sw:hover{transform:scale(1.12);}
+.kbr-sw.active{outline-color:var(--sw); border-color:var(--surface);}
+
+@media (max-width:560px){
+  .kbr-theme{right:14px; bottom:14px;}
+  .kbr-fab{width:44px; height:44px;}
+}

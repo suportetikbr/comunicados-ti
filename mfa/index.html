@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Comunicado de TI — Autenticação em Dois Fatores (MFA) | Koppert Brasil</title>
+<script>/* aplica tema salvo antes do render (evita flash) */(function(){try{var e=document.documentElement,t=localStorage.getItem('kbr-theme'),a=localStorage.getItem('kbr-accent');if(t)e.setAttribute('data-theme',t);else if(window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)e.setAttribute('data-theme','dark');if(a)e.setAttribute('data-accent',a);}catch(e){}})();</script>
+<link rel="stylesheet" href="../theme.css">
 <style>
   :root{
     --verde:#22B865; --verde-esc:#1d8a4e; --verde-noite:#00391c;
@@ -12,10 +14,10 @@
   *{box-sizing:border-box;}
   body{margin:0; background:var(--fundo); font-family:'Segoe UI',Arial,sans-serif; color:var(--texto); line-height:1.6;}
   .wrap{max-width:720px; margin:0 auto; padding:32px 16px;}
-  .card{background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 6px 24px rgba(0,40,20,.08);}
+  .card{background:var(--surface); border-radius:14px; overflow:hidden; box-shadow:var(--card-shadow);}
   .banner img{display:block; width:100%; height:auto;}
   .doctitle{margin:30px 0 0; font-size:28px; font-weight:300; color:var(--tinta); line-height:1.2;}
-  .docsub{margin:8px 0 0; font-size:15px; color:#6e8074;}
+  .docsub{margin:8px 0 0; font-size:15px; color:var(--text-soft);}
   .body{padding:24px 32px 8px;}
   .body p{font-size:15.5px;}
   h2{font-size:19px; color:var(--verde); margin:30px 0 10px;}
@@ -30,16 +32,16 @@
     text-align:center; line-height:26px; border-radius:50%;}
   a{color:var(--verde-esc); font-weight:bold; text-decoration:none;}
   a:hover{text-decoration:underline;}
-  .backbtn{display:inline-block; padding:8px 16px; background:#EAF6EC; color:var(--verde-esc); border:1px solid #cfe6d6; border-radius:8px; font-size:13.5px; font-weight:bold; text-decoration:none;}
-  .backbtn:hover{background:#dcefe2; text-decoration:none;}
+  .backbtn{display:inline-block; padding:8px 16px; background:var(--accent-soft); color:var(--verde-esc); border:1px solid var(--accent-soft-bd); border-radius:8px; font-size:13.5px; font-weight:bold; text-decoration:none;}
+  .backbtn:hover{background:var(--accent-soft-h); text-decoration:none;}
   .callout{border-radius:8px; padding:14px 18px; margin:16px 0; font-size:14.5px;}
   .callout .lbl{font-size:11px; font-weight:bold; letter-spacing:.7px; text-transform:uppercase; margin-bottom:5px;}
-  .c-verde{background:#EAF6EC; border-left:4px solid var(--verde);} .c-verde .lbl{color:var(--verde-esc);}
-  .c-azul{background:#E5F0FA; border-left:4px solid #3B8ACF;}
-  .c-laranja{background:#FDF4E2; border-left:4px solid #E8A13A;}
-  .c-vermelho{background:#FBEAEA; border-left:4px solid #e35d5d;}
-  .footer{background:var(--tinta); padding:22px 32px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
-  .footer div{font-size:12.5px; color:#a9c2b2;}
+  .c-verde{background:var(--accent-soft); border-left:4px solid var(--verde);} .c-verde .lbl{color:var(--verde-esc);}
+  .c-azul{background:var(--co-blue-bg); border-left:4px solid #3B8ACF;}
+  .c-laranja{background:var(--co-orange-bg); border-left:4px solid #E8A13A;}
+  .c-vermelho{background:var(--co-red-bg); border-left:4px solid #e35d5d;}
+  .footer{background:var(--footer-bg); padding:22px 32px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .footer div{font-size:12.5px; color:var(--footer-text);}
   .footer .r{text-align:right;}
   @media (max-width:560px){
     .body,.footer{padding-left:20px; padding-right:20px;}
@@ -123,5 +125,6 @@
 
   </div>
 </div>
+<script src="../theme.js" defer></script>
 </body>
 </html>
